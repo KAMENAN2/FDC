@@ -18,7 +18,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+        loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
       }
     ]
   }, {
@@ -27,7 +27,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
+        loadChildren: () => import('./layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
   },
@@ -37,7 +37,7 @@ const routes: Routes =[
     children: [
       {
         path: '',
-        loadChildren: './_helpers/helpers.module#HelpersModule'
+        loadChildren: () => import('./_helpers/helpers.module').then(m => m.HelpersModule)
       }
     ]
   },
@@ -52,8 +52,9 @@ const routes: Routes =[
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes,{
-      useHash: true
-    })
+    useHash: true,
+    relativeLinkResolution: 'legacy'
+})
   ],
   exports: [
   ],

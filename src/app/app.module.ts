@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {HelpersComponent} from './_helpers/helpers.component';
+import { SortableDirective } from './_services/sortable.directive';
+
 
 
 
@@ -30,7 +32,8 @@ import {HelpersComponent} from './_helpers/helpers.component';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    HelpersComponent
+    HelpersComponent,
+    SortableDirective
   ],
   providers: [],
   bootstrap: [AppComponent]
